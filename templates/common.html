@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<body>
+{% load showsidebar %} <!-- 这里load tags-->
+ <div>
+      <ul>
+          <li class="{% activesidebar 'page1' %}"><a href="/users/">page1</a></li>
+          <li class="{% activesidebar 'page2' %}"><a href="/users/">page2</a></li>
+          <li class="{% activesidebar 'page3' %"}><a href="/users/">page3</a></li>
+      </ul>
+ </div>
+ {% block page_content %}
+ {% endblock %}
+...
+</body>
+</html>
