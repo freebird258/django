@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
  
 def first_page(request):
-    #return HttpResponse("世界好")
+#    return HttpResponse("世界好")
 	context          = {}
-	context['label'] = 'Hello World!'
+	context['label'] = 'HELL00OWORlD0000'
+	context['test'] = 'hello test'
 	return render(request, 'test.html', context)
