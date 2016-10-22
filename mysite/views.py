@@ -8,4 +8,4 @@ def first_page(request):
 	context          = {}
 	context['label'] = 'HELL00OWORlD0000'
 	context['test'] = 'hello test'
-	return render(request, 'test.html', context)
+	return render(request, 'mysite_index.html', context)

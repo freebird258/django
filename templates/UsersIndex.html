@@ -1,3 +1,5 @@
+{% load customtag %}
+
 {% for topic in topics.object_list %}
   <p>{{ topic.name}},{{ topic.price}},{{ topic.amount}}</p>
 {% endfor %}
@@ -12,5 +14,6 @@
       <a href="?page={{ page_number }}">{{ page_number }}</a>
     {% endifequal %}
   {% endfor %}
+    
+  <p> {% current_time "%Y-%m-%d %I:%M %p" %}</p
 </p>
-

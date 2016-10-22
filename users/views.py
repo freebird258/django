@@ -26,4 +26,4 @@ def staff(request):
 	except EmptyPage:  # 如果页码太大，没有相应的记录
 		topics = paginator.page(paginator.num_pages)  # 取最后一页的记录
 
-	return render(request,'index.html', {'topics': topics})
+	return render(request,'UsersIndex.html', {'topics': topics})
