@@ -1,3 +1,7 @@
+{% extends "NavigationBar.html" %}
+
+{% block content %}
+
 {% load customtag %}
 
 {% for topic in topics.object_list %}
@@ -17,3 +21,5 @@
     
   <p> {% current_time "%Y-%m-%d %I:%M %p" %}</p
 </p>
+
+{% endblock %}

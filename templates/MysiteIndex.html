@@ -1,9 +1,15 @@
+{% extends "NavigationBar.html" %}
 {% load customtag %}
 
 {% load customfilter %}
+
+
+{% block content %} 
 <h1>{{ label | cut:"0" }}<h1>
 
 <p>The time is {% current_time "%Y-%m-%d %I:%M %p" %}.</p>
+
+{% endblock %}
 
 
 
