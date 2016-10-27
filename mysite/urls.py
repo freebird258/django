@@ -12,4 +12,5 @@ urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^$', 'mysite.views.first_page'),
 	url(r'^users/', include('users.urls')),
+	url(r'^merchant/', include('merchant.urls')),
 ]
