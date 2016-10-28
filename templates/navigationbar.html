@@ -20,4 +20,9 @@
         {% block content %} {% endblock %}
 
 </body> 
+{% if user.is_authenticated %}
+  <p><a href="/users/">logout</a> <p>
+{% else %}
+ <p><a href="/users/">login</a> <p>
+{% endif %}
 </html>

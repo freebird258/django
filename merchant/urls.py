@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
-    url(r'^$', 'merchant.views.staff'),
-#   url(r'^$', 'users.views.first_page'),
+    url(r'^m_index/', 'merchant.views.m_index'),
+    url(r'^$', 'merchant.views.m_index'),
 )
 

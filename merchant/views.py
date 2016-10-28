@@ -7,7 +7,7 @@ from django.core.cache import caches
 
 import memcache
 
-def staff(request):
+def m_index(request):
 	#mc = memcache.Client(['127.0.0.1:11211'])
 	#telnet 127.0.0.1 11211
 	#stats items

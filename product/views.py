@@ -9,7 +9,7 @@ from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 
 
-def staff(request):
+def p_index(request):
 	limit = 3
 	topics_list = Product.objects.all()
 	paginator = Paginator(topics_list, limit)
