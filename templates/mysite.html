@@ -1,0 +1,24 @@
+{% extends "navigationbar.html" %}
+{% load customtag %}
+
+{% load customfilter %}
+
+
+{% block content %} 
+
+<h1>{{ label | cut:"0" }}<h1>
+
+{% if user.is_authenticated %}
+ <p>Welcome to come in Treble's shop.<p>
+{% else %}
+ <p>Please login in <p>
+{% endif %}
+
+
+<p>{% current_time "%Y-%m-%d %I:%M %p" %}.</p>
+
+{% endblock %}
+
+
+
+

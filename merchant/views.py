@@ -13,7 +13,7 @@ def staff(request):
 	#stats items
 	#stats cachedump 7 0  //本例中为7，第2个参数为列出的长度，0为全部列出
 	cache = caches['default']
-	#cache.set('key1', 'test')
+#	cache.set('key1', 'test',1000000)
 	context          = {}
 	context['hello'] = cache.get('key1')
 	context['a'] = 'aaaa'

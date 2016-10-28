@@ -1,6 +1,7 @@
 {% load navtag %}
 {% load staticfiles %}  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+{% csrf_token %}
+
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -10,10 +11,10 @@
 <body> 
         <ul id="nav">
 			 {% navtagitem / "首页" %} 
-             {% navtagitem /users/ "商品" %} 
+             {% navtagitem /product/ "商品" %} 
              {% navtagitem /merchant/ "商户" %} 
-             {% navtagitem /users/ "待定" %} 
-             {% navtagitem /users/ "联系" %}      
+             {% navtagitem /product/ "联系" %} 
+             {% navtagitem /users/ "登录" %}      
         </ul> 
 
         {% block content %} {% endblock %}
