@@ -1,5 +1,7 @@
 from django.db import models
 
+import datetime
+
 # Create your models here.
 
 class Product(models.Model):
@@ -17,15 +19,9 @@ class Product(models.Model):
 		return u'%s,%s' %(self.name,self.describ)
 		#return [self.name,self.describ]
 
-class Contact(models.Model):
-    name   = models.CharField(max_length=200)
-    age    = models.IntegerField(default=0)
-    email  = models.EmailField()
-    def __unicode__(self):
-        return self.name
- 
-class Tag(models.Model):
-    contact = models.ForeignKey(Contact)
-    name    = models.CharField(max_length=50)
-    def __unicode__(self):
-        return self.name
+class Celerytime(models.Model):
+	name = models.CharField(max_length=200,default="default")
+	Celery_createtime = models.DateTimeField(default=datetime.datetime.now)
+	def __unicode__(self):
+		return self.name
+

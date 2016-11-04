@@ -6,6 +6,7 @@ Treble's shop
 3.缓存：memcache
 4.模版：继承，自定义过滤器，标签
 5.分页
+6.周期性任务：celery
 
 
 detail 
