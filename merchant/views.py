@@ -5,8 +5,24 @@ from django.shortcuts import render
 from django.core.context_processors import csrf
 from django.core.cache import caches
 from django.views.decorators.csrf import csrf_exempt
+from celery import Celery
 
-import memcache,json
+import memcache,json,urllib2,urllib
+
+def http_get(url,headers=None):
+    req = urllib2.Request(url)
+    if headers :
+        for k,v in headers.iteritems():
+            req.add_header(k,v)
+    try:
+        response = urllib2.urlopen(req)
+    except urllib2.URLError,e:
+        print e
+        #print e.read()
+    else:
+        the_page = response.read()
+        print the_page
+
 
 def m_index(request):
 	#mc = memcache.Client(['127.0.0.1:11211'])
@@ -24,14 +40,18 @@ def m_index(request):
 def send_post(request):
 	return render(request, "investigate.html")
 
-@csrf_exempt 
+app = Celery('view',bloker='redis://localhost:6379/1')
+
+@csrf_exempt
+@app.task
 def handle_post(request):
 	ctx ={}
 #	ctx.update(csrf(request))
-	if request.method == 'POST':
-		data = eval(request.body)
-		ctx['rlt'] = data["staff"]
-	else:
-		ctx['rlt'] = "nothing"
-	return HttpResponse(ctx['rlt'])
-	#return HttpResponse(json.dumps(request.body),content_type="application/json")	
+#	if request.method == 'POST':
+#		data = eval(request.body)
+#		ctx['rlt'] = data["staff"]
+#	else:
+	ctx['rlt'] = "nothing"
+	#http_get("http://127.0.0.1:8001")
+	#return HttpResponse(ctx['rlt'])
+	return HttpResponse(json.dumps(ctx),content_type="application/json")	
